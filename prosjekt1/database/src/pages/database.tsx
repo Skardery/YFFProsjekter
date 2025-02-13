@@ -21,11 +21,11 @@ export default function Database() {
             ...data[key],
           }));
           setEntries(entryList);
-          setFilteredEntries(entryList); // Set initial entries as filtered entries
+          setFilteredEntries(entryList);
         }
       })
       .catch((error) => {
-        console.error("Error fetching data: ", error);
+        console.error("Errrorrrr", error);
       });
   }, []);
 
@@ -51,30 +51,30 @@ export default function Database() {
 
   const filterEntries = (query: string, category: string, classes: string[]) => {
     let filtered = entries;
-
+  
     if (query) {
       filtered = filtered.filter((entry) =>
         entry.name.toLowerCase().includes(query.toLowerCase()) ||
         entry.description.toLowerCase().includes(query.toLowerCase())
       );
     }
-
+  
     if (category) {
       filtered = filtered.filter((entry) => entry.category === category);
     }
-
+  
     if (classes.length > 0) {
-      filtered = filtered.filter((entry) =>
-        entry.type.some((item: string) => classes.includes(item))
+      filtered = filtered.filter((entry) => 
+        Array.isArray(entry.type) && entry.type.some((item: string) => classes.includes(item))
       );
     }
-
+  
     setFilteredEntries(filtered);
   };
 
   return (
     <main className="w-screen h-screen bg-gray-300 flex">
-      <div className="w-3/4 p-8">
+      <div className="w-3/4 p-8 bg-[url(/world-map.jpg)] bg-cover">
         <div className="grid grid-cols-5 gap-4">
           {filteredEntries.length > 0 ? (
             filteredEntries.map((entry) => (
@@ -114,61 +114,88 @@ export default function Database() {
           />
         </div>
         <div>
-          <p className="font-bold text-2xl mt-8">Kategorier:</p>
+          <p className="font-bold text-2xl mt-8">Kontinent  :</p>
           <div className="flex items-center py-4">
             <input
               type="radio"
               className="w-4 h-4 mr-4"
-              checked={selectedCategory === "Kategori 1"}
-              onChange={() => handleCategoryChange("Kategori 1")}
+              checked={selectedCategory === "Europa"}
+              onChange={() => handleCategoryChange("Europa")}
             />
-            <p className="">Kategori 1</p>
+            <p className="">Europa</p>
           </div>
           <div className="flex items-center py-4">
             <input
               type="radio"
               className="w-4 h-4 mr-4"
-              checked={selectedCategory === "Kategori 2"}
-              onChange={() => handleCategoryChange("Kategori 2")}
+              checked={selectedCategory === "Nord Amerika"}
+              onChange={() => handleCategoryChange("Nord Amerika")}
             />
-            <p className="">Kategori 2</p>
+            <p className="">Nord Amerika</p>
           </div>
           <div className="flex items-center py-4">
             <input
               type="radio"
               className="w-4 h-4 mr-4"
-              checked={selectedCategory === "Kategori 3"}
-              onChange={() => handleCategoryChange("Kategori 3")}
+              checked={selectedCategory === "Sør Amerika"}
+              onChange={() => handleCategoryChange("Sør Amerika")}
             />
-            <p className="">Kategori 3</p>
+            <p className="">Sør Amerika</p>
+          </div>
+          <div className="flex items-center py-4">
+            <input
+              type="radio"
+              className="w-4 h-4 mr-4"
+              checked={selectedCategory === "Afrika"}
+              onChange={() => handleCategoryChange("Afrika")}
+            />
+            <p className="">Afrika</p>
+          </div>
+          <div className="flex items-center py-4">
+            <input
+              type="radio"
+              className="w-4 h-4 mr-4"
+              checked={selectedCategory === "Asia"}
+              onChange={() => handleCategoryChange("Asia")}
+            />
+            <p className="">Asia</p>
+          </div>
+          <div className="flex items-center py-4">
+            <input
+              type="radio"
+              className="w-4 h-4 mr-4"
+              checked={selectedCategory === "Oseania"}
+              onChange={() => handleCategoryChange("Oseania")}
+            />
+            <p className="">Oseania</p>
           </div>
         </div>
 
         <div>
-          <p className="font-bold text-2xl mt-8">Klasser:</p>
+          <p className="font-bold text-2xl mt-8">I/U land:</p>
           <div className="flex items-center py-4">
             <input
               type="checkbox"
               className="w-4 h-4 mr-4"
-              checked={selectedClasses.includes("Klasse 1")}
-              onChange={(e) => handleClassChange(e, "Klasse 1")}
+              checked={selectedClasses.includes("I land")}
+              onChange={(e) => handleClassChange(e, "I land")}
             />
-            <p className="">Klasse 1</p>
+            <p className="">I-land</p>
           </div>
           <div className="flex items-center py-4">
             <input
               type="checkbox"
               className="w-4 h-4 mr-4"
-              checked={selectedClasses.includes("Klasse 2")}
-              onChange={(e) => handleClassChange(e, "Klasse 2")}
+              checked={selectedClasses.includes("U land")}
+              onChange={(e) => handleClassChange(e, "U land")}
             />
-            <p className="">Klasse 2</p>
+            <p className="">U-land</p>
           </div>
         </div>
 
         <div className="h-flex">
           <Link href="/input">
-            <button className="w-2/3 px-8 py-4 bg-gray-300 mt-[21rem] rounded-md outline-none hover:bg-gray-400 hover:bg-white">
+            <button className="w-2/3 px-8 py-4 bg-gray-300 mt-[12rem] rounded-md outline-none hover:bg-gray-400 hover:bg-white">
               Legg til ny data
             </button>
           </Link>

@@ -55,74 +55,101 @@ export default function Input() {
           </div>
           <div className="flex justify-between w-1/2">
             <div>
-              <p className="text-gray-500 mt-8">Kategori</p>
+              <p className="text-gray-500 mt-8">Kontinent</p>
               <div className="flex items-center py-4">
                 <input
                   type="radio"
                   className="w-4 h-4 mr-4"
-                  checked={category === 'Kategori 1'}
-                  onChange={() => setCategory('Kategori 1')}
+                  checked={category === 'Europa'}
+                  onChange={() => setCategory('Europa')}
                 />
-                <p className="">Kategori 1</p>
+                <p className="">Europa</p>
               </div>
               <div className="flex items-center py-4">
                 <input
                   type="radio"
                   className="w-4 h-4 mr-4"
-                  checked={category === 'Kategori 2'}
-                  onChange={() => setCategory('Kategori 2')}
+                  checked={category === 'Nord Amerika'}
+                  onChange={() => setCategory('Nord Amerika')}
                 />
-                <p className="">Kategori 2</p>
+                <p className="">Nord Amerika</p>
               </div>
               <div className="flex items-center py-4">
                 <input
                   type="radio"
                   className="w-4 h-4 mr-4"
-                  checked={category === 'Kategori 3'}
-                  onChange={() => setCategory('Kategori 3')}
+                  checked={category === 'Sør Amerika'}
+                  onChange={() => setCategory('Sør Amerika')}
                 />
-                <p className="">Kategori 3</p>
+                <p className="">Sør Amerika</p>
               </div>
+              <div className="flex items-center py-4">
+                <input
+                  type="radio"
+                  className="w-4 h-4 mr-4"
+                  checked={category === 'Afrika'}
+                  onChange={() => setCategory('Afrika')}
+                />
+                <p className="">Afrika</p>
+              </div>
+              <div className="flex items-center py-4">
+                <input
+                  type="radio"
+                  className="w-4 h-4 mr-4"
+                  checked={category === 'Asia'}
+                  onChange={() => setCategory('Asia')}
+                />
+                <p className="">Asia</p>
+              </div>
+              <div className="flex items-center py-4">
+                <input
+                  type="radio"
+                  className="w-4 h-4 mr-4"
+                  checked={category === 'Oceania'}
+                  onChange={() => setCategory('Oceania')}
+                />
+                <p className="">Oceania</p>
+              </div>  
             </div>
 
             <div>
-              <p className="text-gray-500 mt-8">Type</p>
+              <p className="text-gray-500 mt-8">I/U land</p>
               <div className="flex items-center py-4">
                 <input
                   type="checkbox"
                   className="w-4 h-4 mr-4"
-                  checked={type.includes('Klasse 1')}
+                  checked={type.includes('I land')}
                   onChange={(e) => {
                     if (e.target.checked) {
-                      setType([...type, 'Klasse 1']);
+                      setType([...type, 'I land']);
                     } else {
-                      setType(type.filter((t) => t !== 'Klasse 1'));
+                      setType(type.filter((t) => t !== 'I land'));
                     }
                   }}
                 />
-                <p className="">Klasse 1</p>
+                <p className="">I land</p>
               </div>
               <div className="flex items-center py-4">
                 <input
                   type="checkbox"
                   className="w-4 h-4 mr-4"
-                  checked={type.includes('Klasse 2')}
+                  checked={type.includes('U land')}
                   onChange={(e) => {
                     if (e.target.checked) {
-                      setType([...type, 'Klasse 2']);
+                      setType([...type, 'U land']);
                     } else {
-                      setType(type.filter((t) => t !== 'Klasse 2'));
+                      setType(type.filter((t) => t !== 'U land'));
                     }
                   }}
                 />
-                <p className="">Klasse 2</p>
+                <p className="">U land</p>
               </div>
             </div>
           </div>
           <div>
             <p className="text-gray-500 mt-8">Informasjon</p>
             <textarea
-              className="outline-none border border-gray-400 px-4 py-2 rounded-r-lg w-[90%] h-[15rem] resize-none"
+              className="outline-none border border-gray-400 px-4 py-2 rounded-r-lg w-[90%] h-[4rem] resize-none"
               value={information}
               onChange={(e) => setInformation(e.target.value)}
             />
