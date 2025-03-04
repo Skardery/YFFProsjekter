@@ -114,7 +114,7 @@ export default function Database() {
           />
         </div>
         <div>
-          <p className="font-bold text-2xl mt-8">Kontinent  :</p>
+          <p className="font-bold text-2xl mt-8">Kontinent:</p>
           <div className="flex items-center py-4">
             <input
               type="radio"
