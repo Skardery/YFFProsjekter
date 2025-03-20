@@ -1,8 +1,11 @@
 Model Information:
-* title:	AC - Bmw 1m [FREE]
-* source:	https://sketchfab.com/3d-models/ac-bmw-1m-free-f0ac8fa9bf1e4d79a03a4a3ea6d24afa
-* author:	D3DARTM (https://sketchfab.com/D3DARTM)
+* title:	BMW M3 E30
+* source:	https://sketchfab.com/3d-models/bmw-m3-e30-6d67d12a2abe4e119842f65e46fa2f67
+* author:	Artem P (https://sketchfab.com/temp0.crazy)
 
 Model License:
-* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
-* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "BMW M3 E30" (https://sketchfab.com/3d-models/bmw-m3-e30-6d67d12a2abe4e119842f65e46fa2f67) by Artem P (https://sketchfab.com/temp0.crazy) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
