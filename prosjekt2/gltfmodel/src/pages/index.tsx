@@ -31,56 +31,71 @@ function CameraController({ targetPosition }) {
 
 export default function Home() {
   const [cameraPosition, setCameraPosition] = useState([2, 1, 2]);
+  const [model, setModel] = useState('bmw');
 
   const handleCameraChange = (position) => {  
     setCameraPosition(position);
   };
 
+  const handleModelChange = (modelName) => {
+    setModel(modelName);
+  };
+
   return (
     <div className="w-screen h-screen bg-gray-600">
       <div className='h-[5%] flex justify-between'>
-        <div className="h-full flex px-8 py-2 justify-between w-1/4">
+        <div className="h-full flex px-8 py-2 justify-between w-1/6">
           <button
-            className="bg-gray-700 py-1 px-2 rounded-sm text-white hover:bg-gray-500"
+            className="bg-gray-700 py-1 px-4 rounded-sm text-white hover:bg-gray-500"
             onClick={() => handleCameraChange([2, 1, 2])}
           >
-            Vinkel 1
+            1
           </button>
           <button
-            className="bg-gray-700 py-1 px-2 rounded-sm text-white hover:bg-gray-500"
+            className="bg-gray-700 py-1 px-4 rounded-sm text-white hover:bg-gray-500"
             onClick={() => handleCameraChange([-3.5, 0.7 , 1])}
           >
-            Vinkel 2
+            2
           </button>
           <button
-            className="bg-gray-700 py-1 px-2 rounded-sm text-white hover:bg-gray-500"
+            className="bg-gray-700 py-1 px-4 rounded-sm text-white hover:bg-gray-500"
             onClick={() => handleCameraChange([2, 2, 4])}
           >
-            Vinkel 3
+            3
           </button>
           <button
-            className="bg-gray-700 py-1 px-2 rounded-sm text-white hover:bg-gray-500"
+            className="bg-gray-700 py-1 px-4 rounded-sm text-white hover:bg-gray-500"
             onClick={() => handleCameraChange([-4,2,2])}
           >
-            Vinkel 4
+            4
           </button>
           <button
-            className="bg-gray-700 py-1 px-2 rounded-sm text-white hover:bg-gray-500"
+            className="bg-gray-700 py-1 px-4 rounded-sm text-white hover:bg-gray-500"
             onClick={() => handleCameraChange([-2, 1, -3])}
           >
-            Vinkel 5
+            5
           </button>
         </div>
         <div className='h-full flex px-8 py-2 w-1/4 justify-end'>
-          <button className="bg-gray-700 py-1 px-2 rounded-sm text-white hover:bg-gray-500 mr-3">BMW</button>
-          <button className="bg-gray-700 py-1 px-2 rounded-sm text-white hover:bg-gray-500">Mclaren f1</button>
+          <button
+            className="bg-gray-700 py-1 px-2 rounded-sm text-white hover:bg-gray-500 mr-3"
+            onClick={() => handleModelChange('bmw')}
+          >
+            BMW
+          </button>
+          <button
+            className="bg-gray-700 py-1 px-2 rounded-sm text-white hover:bg-gray-500"
+            onClick={() => handleModelChange('mclaren')}
+          >
+            Mclaren F1
+          </button>
         </div>
       </div>
       <div className="h-[95%]">
         <Canvas camera={{ position: cameraPosition, fov: 50 }}>
           <ambientLight intensity={0.5} />
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-          <Model />
+          <Model model={model} />
           <OrbitControls
             enableZoom={true}
             maxDistance={4}
